@@ -1,26 +1,28 @@
 const express = require('express');
 const mongoose = require('mongoose');
-connection = "mongodb+srv://demo:1234@app.zgawpvg.mongodb.net/?retryWrites=true&w=majority";
+const cors = require('cors');
 mongoose.set('strictQuery', false);
-
-mongoose
-.connect(
-    connection, 
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    }
-)
-.then(() => console.log("Connected to DB"))
-.catch(console.error);
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
-app.listen(8080, () => console.log('Server listening on port 8080'));
+// INIT CONNECTION
+mongoose
+  .connect(
+    "mongodb+srv://demo:1234@app.zgawpvg.mongodb.net/?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(() => console.log('Connected to DB'))
+  .catch(console.error);
 
-const Post = require('./models/posts');
+const Post = require('./models/post');
 const User = require('./models/user');
+
+app.listen(8080, () => console.log('Server listening on port 8080: http://localhost:8080'));
 
 // POSTS ENDPOINTS
 
