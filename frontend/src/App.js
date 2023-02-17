@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 function App() {
-  let [posts, setPosts] = useState([]); 
+  const [posts, setPosts] = useState([]); 
   const [message, setMessage] = useState('');
   const URL = "http://localhost:8080"
 
@@ -17,10 +17,9 @@ function App() {
 
   useEffect(() => {
     getFeed();
-  }, [posts]);
+  }, []);
 
   function addPost () {
-
     if(message === '') {
       alert('message cannot be empty!');
       return;
@@ -29,7 +28,10 @@ function App() {
     axios.post(URL + '/feed/new', {
       content: message,
       user: "testuser"
-    }).then(response => console.log(response))
+    }).then(response => {
+      console.log(response)
+      getFeed();
+    })
     .catch(console.error)
 
     setMessage('');
