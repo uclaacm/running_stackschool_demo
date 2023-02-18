@@ -42,6 +42,7 @@ function App() {
   }
 
   return (
+<<<<<<< HEAD
     <div>
       <div>
         <input
@@ -53,6 +54,10 @@ function App() {
         <button onClick={() => addPost()}> Post </button>
       </div>
       
+=======
+    <div className='App'>
+      <UserPost newPost={message} setNewPost={setMessage} addPost={addPost} />
+>>>>>>> b03d596f97834fcb0c7977a0f20f8148f5f9a65a
       {posts.map((post, i) => (
         <div key={i}>
           <FeedPost
