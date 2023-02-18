@@ -1,38 +1,41 @@
-import './App.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import UserPost from './components/UserPost';
 
 function App() {
-  const [posts, setPosts] = useState([]); 
+  const [posts, setPosts] = useState([]);
   const [message, setMessage] = useState('');
-  const URL = "http://localhost:8080"
+  const URL = 'http://localhost:8080';
 
   const getFeed = () => {
-    axios.get(URL + "/feed")
+    axios
+      .get(URL + '/feed')
       .then(response => {
         setPosts(response.data);
       })
-      .catch(console.error)
-  }
+      .catch(console.error);
+  };
 
   useEffect(() => {
     getFeed();
   }, []);
 
-  function addPost () {
-    if(message === '') {
+  function addPost() {
+    if (message === '') {
       alert('message cannot be empty!');
       return;
     }
 
-    axios.post(URL + '/feed/new', {
-      content: message,
-      user: "testuser"
-    }).then(response => {
-      console.log(response)
-      getFeed();
-    })
-    .catch(console.error)
+    axios
+      .post(URL + '/feed/new', {
+        content: message,
+        user: 'testuser'
+      })
+      .then(response => {
+        console.log(response);
+        getFeed();
+      })
+      .catch(console.error);
 
     setMessage('');
   }
@@ -43,18 +46,20 @@ function App() {
         <input
           type='text'
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          onChange={e => setMessage(e.target.value)}
           placeholder='message here!!!'
         />
         <button onClick={() => addPost()}> Post </button>
       </div>
-      {posts.map((post, i) => 
+      {posts.map((post, i) => (
         <div key={i}>
           <h3>{post.user}</h3>
           <p>{post.content}</p>
-          <p>{post.num_likes} {post.timestamp}</p>
-        </div>  
-      )}
+          <p>
+            {post.num_likes} {post.timestamp}
+          </p>
+        </div>
+      ))}
     </div>
   );
 }
