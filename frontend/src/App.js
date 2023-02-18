@@ -41,16 +41,8 @@ function App() {
   }
 
   return (
-    <div>
-      <div>
-        <input
-          type='text'
-          value={message}
-          onChange={e => setMessage(e.target.value)}
-          placeholder='message here!!!'
-        />
-        <button onClick={() => addPost()}> Post </button>
-      </div>
+    <div className='App'>
+      <UserPost newPost={message} setNewPost={setMessage} addPost={addPost} />
       {posts.map((post, i) => (
         <div key={i}>
           <h3>{post.user}</h3>
