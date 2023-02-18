@@ -39,3 +39,43 @@
   padding-left: 3rem;
   margin-left: 1rem;
 }
+
+.feedPost {
+  text-align: left;
+}
+
+.feedPost h4 {
+  margin-bottom: 0.6rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+.text {
+  position: relative;
+  background-color: #fff;
+  color: black;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  justify-content: space-between;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.date {
+  text-align: right;
+  font-style: italic;
+  padding: 0.5rem;
+}
+
+.dateContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}

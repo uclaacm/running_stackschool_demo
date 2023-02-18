@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import UserPost from './components/UserPost';
 import FeedPost from './components/FeedPost';
+import './styles/feed.css';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -42,22 +43,8 @@ function App() {
   }
 
   return (
-<<<<<<< HEAD
-    <div>
-      <div>
-        <input
-          type='text'
-          value={message}
-          onChange={e => setMessage(e.target.value)}
-          placeholder='message here!!!'
-        />
-        <button onClick={() => addPost()}> Post </button>
-      </div>
-      
-=======
     <div className='App'>
       <UserPost newPost={message} setNewPost={setMessage} addPost={addPost} />
->>>>>>> b03d596f97834fcb0c7977a0f20f8148f5f9a65a
       {posts.map((post, i) => (
         <div key={i}>
           <FeedPost

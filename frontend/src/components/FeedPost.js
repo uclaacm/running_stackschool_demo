@@ -15,15 +15,18 @@ function FeedPost ({
     const time = numericalTime.toLocaleTimeString("en-US")
 
     return (
-        <div className="feedPost">
+        <div className='feedPost'>
             <h4>{user}</h4>
-            <div className="content">
-                <p>{content}</p>
+
+            <div className='content'>
+                <div className='text'>
+                    <p>{content}</p>
+                </div>
             </div>
-            <p>{likes}</p>
-            <div className="date">
-                <p>{date}</p>
-                <p>{time}</p>
+
+            <div className='dateContainer'>
+                <p className='date'>{date}</p>
+                <p className='date'>{time}</p>
             </div>
         </div>
     )
