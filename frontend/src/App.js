@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import UserPost from './components/UserPost';
+import FeedPost from './components/FeedPost';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -51,13 +52,16 @@ function App() {
         />
         <button onClick={() => addPost()}> Post </button>
       </div>
+      
       {posts.map((post, i) => (
         <div key={i}>
-          <h3>{post.user}</h3>
-          <p>{post.content}</p>
-          <p>
-            {post.num_likes} {post.timestamp}
-          </p>
+          <FeedPost
+            key={post._id}
+            content={post.content}
+            user={post.user}
+            likes={post.num_likes}
+            timestamp={post.timestamp}
+          />
         </div>
       ))}
     </div>
