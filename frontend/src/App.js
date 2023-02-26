@@ -1,26 +1,28 @@
-import './App.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import FeedPost from './components/FeedPost';
+import UserPost from './components/UserPost';
+import './styles/feed.css';
 
 function App() {
-  const [posts, setPosts] = useState([]); 
+  const [posts, setPosts] = useState([]);
   const [message, setMessage] = useState('');
-  const URL = "http://localhost:8080"
+  const URL = "http://localhost:8080";
 
   const getFeed = () => {
     axios.get(URL + "/feed")
       .then(response => {
         setPosts(response.data);
       })
-      .catch(console.error)
-  }
+      .catch(console.error);
+  };
 
   useEffect(() => {
     getFeed();
   }, []);
 
-  function addPost () {
-    if(message === '') {
+  function addPost() {
+    if (message === '') {
       alert('message cannot be empty!');
       return;
     }
@@ -29,32 +31,39 @@ function App() {
       content: message,
       user: "testuser"
     }).then(response => {
-      console.log(response)
+      console.log(response);
       getFeed();
     })
-    .catch(console.error)
+      .catch(console.error);
 
     setMessage('');
   }
 
   return (
-    <div>
+    <div className='App'>
       <div>
-        <input
+        <UserPost newPost={message} setNewPost={setMessage} addPost={addPost} />
+        {/* <input
           type='text'
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder='message here!!!'
         />
-        <button onClick={() => addPost()}> Post </button>
+        <button onClick={() => addPost()}> Post </button> */}
       </div>
-      {posts.map((post, i) => 
+      {posts.map((post, i) =>
         <div key={i}>
-          <h3>{post.user}</h3>
+          {/* <h3>{post.user}</h3>
           <p>{post.content}</p>
-          <p>{post.num_likes} {post.timestamp}</p>
-        </div>  
-      )}
+          <p>{post.num_likes} {post.timestamp}</p> */}
+          <FeedPost
+            user={post.user}
+            content={post.content}
+            timestamp={post.timestamp}
+          />
+        </div>
+      ).reverse()}
+      <p>HELLO</p>
     </div>
   );
 }
