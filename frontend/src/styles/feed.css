@@ -1,81 +1,80 @@
-.message .button {
-  border-top-right-radius: 999px;
-  border-bottom-right-radius: 999px;
-  text-align: center;
-  min-width: fit-content;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  background: linear-gradient(
-      to right,
-      var(--grad-begin),
-      var(--grad-begin),
-      var(--grad-end)
-    )
-    right;
-  transition: 0.3s;
-  background-size: 200%;
-}
-
-.message .button:hover {
-  background-position: left;
-  transition: 0.5s;
-}
-
-.message {
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-}
-
-.messageInput {
-  outline: none;
-  border: none;
-  background-color: #fff;
-  border-top-left-radius: 999px;
-  border-bottom-left-radius: 999px;
-  width: 69%;
-  box-shadow: 0px 2px 24px rgba(0, 0, 0, 0.2);
-  font-size: 1.5rem;
-  padding-left: 3rem;
-  margin-left: 1rem;
-}
-
 .feedPost {
-  text-align: left;
+	text-align: left;
 }
 
 .feedPost h4 {
-  margin-bottom: 0.6rem;
+	margin-bottom: 0.6rem;
 }
 
 .content {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 .text {
-  position: relative;
-  background-color: #fff;
-  color: black;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  transition: 0.5s;
-  justify-content: space-between;
-  padding: 1.5rem;
-  width: 100%;
+	position: relative;
+	background-color: #fff;
+	color: black;
+	border-radius: 16px;
+	display: flex;
+	align-items: center;
+	transition: 0.5s;
+	justify-content: space-between;
+	padding: 1.5rem;
+	width: 100%;
 }
 
 .date {
-  text-align: right;
-  font-style: italic;
-  padding: 0.5rem;
+	text-align: right;
+	font-style: italic;
+	padding: 0.5rem;
 }
 
 .dateContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding-bottom: 1rem;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	justify-content: space-between;
+	padding-bottom: 1rem;
+}
+.message .button {
+	border-top-right-radius: 999px;
+	border-bottom-right-radius: 999px;
+	text-align: center;
+	min-width: fit-content;
+	padding-left: 3rem;
+	padding-right: 3rem;
+	background: linear-gradient(
+			to right,
+			var(--grad-begin),
+			var(--grad-begin),
+			var(--grad-end)
+		)
+		right;
+	transition: 0.3s;
+	background-size: 200%;
+}
+
+.message .button:hover {
+	background-position: left;
+	transition: 0.5s;
+}
+
+.message {
+	display: flex;
+	width: 100%;
+	justify-content: flex-end;
+}
+
+.messageInput {
+	outline: none;
+	border: none;
+	background-color: #fff;
+	border-top-left-radius: 999px;
+	border-bottom-left-radius: 999px;
+	width: 69%;
+	box-shadow: 0px 2px 24px rgba(0, 0, 0, 0.2);
+	font-size: 1.5rem;
+	padding-left: 3rem;
+	margin-left: 1rem;
 }
