@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import UserPost from '../components/UserPost';
 import FeedPost from '../components/FeedPost';
 import '../styles/feed.css';
+import ProfileButton from '../components/ProfileButton';
 
 function FeedPage() {
   const [posts, setPosts] = useState([]);
@@ -44,18 +45,22 @@ function FeedPage() {
 
   return (
     <div className='App'>
-      <UserPost newPost={message} setNewPost={setMessage} addPost={addPost} />
-      {posts.map((post, i) => (
-        <div key={i}>
+      <div className='userPrompt'>
+        <ProfileButton />
+        <UserPost newPost={message} setNewPost={setMessage} addPost={addPost} />
+      </div>
+
+      {posts
+        .map((post) => (
           <FeedPost
             key={post._id}
             content={post.content}
             user={post.user}
-            likes={post.num_likes}
+            id={post._id}
             timestamp={post.timestamp}
           />
-        </div>
-      ))}
+        ))
+        .reverse()}
     </div>
   );
 }
