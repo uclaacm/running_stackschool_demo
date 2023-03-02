@@ -1,6 +1,8 @@
 import React from "react";
 import Trash from '../img/Trash-Icon.png';
 
+const user = 'James';
+
 function FeedPost({
     content,
     timestamp,
@@ -14,7 +16,7 @@ function FeedPost({
     return (
         <div className="feedPost">
             <div className="postTop">
-                <h4>James</h4>
+                <h4>{user}</h4>
                 {deletePost ? (
                     <div className="hover" onClick={() => {
                         deletePost(id); }}>
