@@ -7,13 +7,14 @@ frontend/.pnp.js
 backend/.yarn/*
 backend/.pnp.cjs
 frontend/.yarn/*
-.yarn/*
+.yarn/**
 !.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+**/node_modules
 
 
 # testing
